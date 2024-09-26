@@ -1,20 +1,19 @@
 package com.appenvios.envios.Model;
 
+import lombok.Getter;
+
+@Getter
 public enum EmpresaEnvio {
     DHL("DHL"),
     FEDEX("FedEx"),
     UPS("UPS");
 
+    // Método para obtener el nombre de la empresa
     private final String nombre;
 
     // Constructor del enum
     EmpresaEnvio(String nombre) {
         this.nombre = nombre;
-    }
-
-    // Método para obtener el nombre de la empresa
-    public String getNombre() {
-        return nombre;
     }
 
     @Override

@@ -2,8 +2,13 @@ package com.appenvios.envios.Model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Entity
+@Getter
+@Setter
 public class Servicio {
     @Id
     private Long id;
@@ -12,11 +17,15 @@ public class Servicio {
     private TipoServicio tipoServicio;
     private Double precio;
 
-    public void setId(Long id) {
-        this.id = id;
+    public Servicio(EmpresaEnvio empresa, TipoServicio tipoServicio, Double precio) {
+        this.empresa = empresa;
+        this.tipoServicio = tipoServicio;
+        this.precio = precio;
     }
 
-    public Long getId() {
-        return id;
+    public Servicio() {
+
     }
+
+
 }

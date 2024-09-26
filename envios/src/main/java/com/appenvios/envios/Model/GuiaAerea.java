@@ -1,25 +1,28 @@
 package com.appenvios.envios.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 
 @Entity
+@Getter @Setter
 public class GuiaAerea {
 
     @Id
     private Long id;
 
     private String trackingNumber;
-
     @ManyToOne
     @JoinColumn(name = "origen_id", nullable = false)
-    private Persona origen;
+    private Origen origen;
     @ManyToOne
-    @JoinColumn(name = "origen_id", nullable = false)
-    private Persona destino;
-
+    @JoinColumn(name = "destino_id", nullable = false)
+    private Destino destino;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", nullable = false)
+    private Cliente cliente;
     @ManyToOne
     @JoinColumn(name = "servicio_id", nullable = false)
     private Servicio servicio;
@@ -28,45 +31,7 @@ public class GuiaAerea {
     public GuiaAerea() {
     }
 
-    public GuiaAerea(String trackingNumber, Persona origen, Persona destino, Servicio servicio) {
-        this.trackingNumber = trackingNumber;
-        this.origen = origen;
-        this.destino = destino;
-        this.servicio = servicio;
-    }
 
-
-    public String getTrackingNumber() {
-        return trackingNumber;
-    }
-
-    public void setTrackingNumber(String trackingNumber) {
-        this.trackingNumber = trackingNumber;
-    }
-
-    public Persona getOrigen() {
-        return origen;
-    }
-
-    public void setOrigen(Persona origen) {
-        this.origen = origen;
-    }
-
-    public Persona getDestino() {
-        return destino;
-    }
-
-    public void setDestino(Persona destino) {
-        this.destino = destino;
-    }
-
-    public Servicio getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(Servicio servicio) {
-        this.servicio = servicio;
-    }
 
 
 }
